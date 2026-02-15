@@ -8,7 +8,7 @@ import {
 
 export const profileData: ProfileData = {
   name: "Khalifeh Ahmad",
-  title: "Front-End Developer",
+  title: "Front-End Developer/ Quality Assurance Engineer",
   location: "Kuala Lumpur, Malaysia",
   email: "khalifeh92ahmed@hotmail.com",
   phone: "(+60) 1161686507",
@@ -16,7 +16,8 @@ export const profileData: ProfileData = {
   dateOfBirth: "16 May 1992",
   gender: "Male",
   summary:
-    "Front-End Developer with 5+ years of experience building responsive, user-friendly web interfaces and scalable front-end architectures. Skilled in modern frameworks like React, TypeScript/JavaScript, UI/UX best practices, and API integrations. Strong background in web science and software engineering with experience working in Agile teams, collaborating with designers and backend developers, and delivering clean, maintainable code. Passionate about creating seamless digital experiences and continuously learning new technologies.",
+    "I build web interfaces with React and TypeScript, with attention to how they integrate with APIs, databases, and business logic behind the scenes. My development approach includes testing considerations from the start—because maintainable code is easier to validate." +
+    "My background includes frontend development at Source Code, full-cycle software engineering and testing at Syriatel Mobile Telecom, and currently designing workflow automations with N8N at Maids.cc. A Master's in Web Science taught me to view applications as connected systems rather than isolated layers. I'm now complementing that technical foundation with an MBA at Geomatika University to bridge technology implementation with business context.",
 };
 
 export const experiences: Experience[] = [
@@ -122,12 +123,19 @@ export const certifications: Certification[] = [
     date: "Feb 2021",
     link: "https://coursera.org/share/697d2754498cbb3d54c60213c84461ec",
   },
+  {
+    id: "5",
+    name: "Software Testing Fundamentals for ISTQB",
+    issuer: "Coursera",
+    date: "Jan 2026",
+    link: "https://coursera.org/share/09dcd6035fd7f76bff1f9f77a0c91eef",
+  },
 ];
 
 export const skills: Skill[] = [
   // Frontend
   { name: "React.js", category: "frontend" },
-  { name: "Angular", category: "frontend" },
+  //{ name: "Angular", category: "frontend" },
   { name: "TypeScript", category: "frontend" },
   { name: "JavaScript", category: "frontend" },
   { name: "HTML5", category: "frontend" },
@@ -136,7 +144,7 @@ export const skills: Skill[] = [
   { name: "jQuery", category: "frontend" },
 
   // Backend
-  { name: "PHP Laravel", category: "backend" },
+  //{ name: "PHP Laravel", category: "backend" },
   { name: "RESTful APIs", category: "backend" },
   { name: "Node.js", category: "backend" },
 
@@ -153,4 +161,5 @@ export const skills: Skill[] = [
   { name: "jMeter", category: "tools" },
   { name: "Notion", category: "tools" },
   { name: "Software Testing", category: "tools" },
+  { name: "Playwright", category: "tools" },
 ];
