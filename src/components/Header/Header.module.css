@@ -17,7 +17,7 @@
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-radius: 24px;
+  border-radius: var(--border-radius-lg);
   padding: 1rem 2rem;
   display: grid;
   grid-template-columns: 200px 1fr 200px;
@@ -41,8 +41,8 @@
 .logoIcon {
   width: 42px;
   height: 42px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 12px;
+  background: var(--gradient);
+  border-radius: var(--border-radius); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,13 +66,13 @@
 .logoName {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--text-dark);
 }
 
 .logoTitle {
   font-size: 0.75rem;
   font-weight: 500;
-  color: #667eea;
+  color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -95,7 +95,7 @@
   padding: 0.625rem 1.25rem;
   font-size: 0.9rem;
   font-weight: 500;
-  color: #64748b;
+  color: var(--text-light);
   cursor: pointer;
   border-radius: 50px;
   transition: all 0.3s ease;
@@ -103,7 +103,7 @@
 }
 
 .navItem:hover {
-  color: #667eea;
+  color: var(--primary-color);
   background: rgba(102, 126, 234, 0.1);
 }
 
@@ -119,7 +119,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient);
   border: none;
   padding: 0.75rem 1.5rem;
   font-size: 0.9rem;
@@ -128,7 +128,7 @@
   cursor: pointer;
   border-radius: 50px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
   justify-self: end;
 }
 
@@ -211,7 +211,7 @@
   border: none;
   font-size: 2rem;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--text-dark);
   cursor: pointer;
   padding: 1rem;
   text-align: center;

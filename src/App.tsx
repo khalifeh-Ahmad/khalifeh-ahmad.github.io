@@ -8,10 +8,11 @@ import Education from "./components/Education/Education";
 import Skills from "./components/Skills/Skills";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
+import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App preload">
       <Header />
       <Hero />
       <About />
@@ -20,6 +21,7 @@ function App() {
       <Skills />
       <Contact />
       <Footer />
+      <ThemeSwitcher />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 .footer {
-  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  background: var(--gradient); 
   color: white;
   padding: 4rem 2rem 2rem;
 }
@@ -34,7 +34,7 @@
 
 .tagline {
   font-size: 1.125rem;
-  color: #9ca3af;
+  color: #e5e7eb; 
   line-height: 1.7;
   margin-bottom: 2rem;
 }
@@ -58,8 +58,9 @@
 }
 
 .socialLinks a:hover {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: rgba(255, 255, 255, 0.25); 
   transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .links {
@@ -80,7 +81,7 @@
   display: block;
   background: none;
   border: none;
-  color: #9ca3af;
+  color: #e5e7eb; 
   font-size: 1rem;
   text-decoration: none;
   margin-bottom: 0.75rem;
@@ -105,14 +106,14 @@
 
 .copyright {
   font-size: 0.95rem;
-  color: #6b7280;
+  color: var(--footer-text-light); 
 }
 
 .backToTop {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   border: none;
   color: white;
   padding: 0.75rem 1.5rem;
@@ -125,8 +126,9 @@
 }
 
 .backToTop:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.25); 
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 968px) {

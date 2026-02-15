@@ -36,7 +36,12 @@
 
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
+    <style>
+      /* Prevent flash of unstyled content */
+      .preload * {
+        transition: none !important;
+      }
+    </style>
     <title>Khalifeh Ahmad - Front-End Developer Portfolio</title>
   </head>
   <body>

@@ -1,6 +1,6 @@
 .contact {
   padding: 6rem 2rem;
-  background: #f9fafb;
+  background: var(--bg-light);
 }
 
 .container {
@@ -13,7 +13,7 @@
   font-weight: 800;
   text-align: center;
   margin-bottom: 1rem;
-  color: #1f2937;
+  color: var(--text-dark);
   position: relative;
   padding-bottom: 1rem;
 }
@@ -26,14 +26,14 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(to right, #667eea, #764ba2);
+  background: linear-gradient(to right, var(--primary-color), #764ba2);
   border-radius: 2px;
 }
 
 .subtitle {
   text-align: center;
   font-size: 1.125rem;
-  color: #6b7280;
+  color: var(--text-light);
   max-width: 600px;
   margin: 0 auto 4rem;
   line-height: 1.7;
@@ -56,7 +56,7 @@
 .infoTitle {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--text-dark);
   margin-bottom: 2rem;
 }
 
@@ -74,8 +74,8 @@
   width: 50px;
   height: 50px;
   min-width: 50px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 12px;
+  background: var(--gradient);
+  border-radius: var(--border-radius);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,14 +94,14 @@
 .infoItem p,
 .infoItem a {
   font-size: 1.125rem;
-  color: #1f2937;
+  color: var(--text-dark);
   font-weight: 500;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .infoItem a:hover {
-  color: #667eea;
+  color: var(--primary-color);
 }
 
 .socialLinks {
@@ -119,13 +119,13 @@
   align-items: center;
   justify-content: center;
   background: #f3f4f6;
-  border-radius: 12px;
-  color: #667eea;
+  border-radius: var(--border-radius);
+  color: var(--primary-color);
   transition: all 0.3s ease;
 }
 
 .socialLink:hover {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient);
   color: white;
   transform: translateY(-3px);
 }
@@ -155,16 +155,16 @@
   padding: 1rem 1.25rem;
   font-size: 1rem;
   border: 2px solid #e5e7eb;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   transition: all 0.3s ease;
   font-family: inherit;
-  background: #f9fafb;
+  background: var(--bg-light);
 }
 
 .formGroup input:focus,
 .formGroup textarea:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: var(--primary-color);
   background: white;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
@@ -184,9 +184,9 @@
   font-size: 1.125rem;
   font-weight: 700;
   color: white;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient);
   border: none;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   cursor: pointer;
   transition: all 0.3s ease;
 }

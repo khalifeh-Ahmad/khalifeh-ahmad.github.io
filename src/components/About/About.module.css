@@ -1,6 +1,6 @@
 .about {
   padding: 6rem 2rem;
-  background: #f9fafb;
+  background: var(--bg-light);
 }
 
 .container {
@@ -13,7 +13,7 @@
   font-weight: 800;
   text-align: center;
   margin-bottom: 4rem;
-  color: #1f2937;
+  color: var(--text-dark);
   position: relative;
   padding-bottom: 1rem;
 }
@@ -26,7 +26,7 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(to right, #667eea, #764ba2);
+  background: linear-gradient(to right, var(--primary-color), #764ba2);
   border-radius: 2px;
 }
 
@@ -39,9 +39,9 @@
 /* Featured Quote */
 .featuredQuote {
   grid-column: 1 / -1;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient);
   padding: 3rem;
-  border-radius: 24px;
+  border-radius: var(--border-radius-lg);
   color: white;
   position: relative;
   margin-bottom: 2rem;
@@ -76,7 +76,7 @@
 .article {
   background: white;
   padding: 3rem;
-  border-radius: 20px;
+  border-radius: var(--border-radius-lg);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
@@ -94,12 +94,12 @@
   gap: 0.75rem;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--text-dark);
   margin-bottom: 1rem;
 }
 
 .headingAccent {
-  color: #667eea;
+  color: var(--primary-color);
   font-size: 1.25rem;
 }
 
@@ -114,7 +114,7 @@
   background: linear-gradient(120deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
   padding: 0.125rem 0.375rem;
   border-radius: 4px;
-  color: #667eea;
+  color: var(--primary-color);
   font-weight: 600;
 }
 
@@ -128,14 +128,14 @@
 .sidebarCard {
   background: white;
   padding: 2rem;
-  border-radius: 20px;
+  border-radius: var(--border-radius-lg);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .sidebarTitle {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--text-dark);
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
   border-bottom: 2px solid #e5e7eb;
@@ -159,7 +159,7 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: #667eea;
+  color: var(--primary-color);
   font-weight: bold;
 }
 
@@ -175,14 +175,14 @@
   align-items: center;
   text-align: center;
   padding: 1rem;
-  background: #f9fafb;
-  border-radius: 12px;
+  background: var(--bg-light);
+  border-radius: var(--border-radius);
 }
 
 .miniNumber {
   font-size: 2rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -192,7 +192,7 @@
 
 .miniLabel {
   font-size: 0.875rem;
-  color: #6b7280;
+  color: var(--text-light);
   font-weight: 500;
 }
 
