@@ -7,7 +7,16 @@ export interface Experience {
   endDate: string;
   responsibilities: string[];
 }
-
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image?: string;
+  tags: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  featured?: boolean;
+}
 export interface Education {
   id: string;
   degree: string;
@@ -41,5 +50,15 @@ export interface ProfileData {
   summary: string;
   dateOfBirth: string;
   gender: string;
-  aboutme:string
+  aboutme: string;
+}
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  position: string;
+  company: string;
+  message: string;
+  avatar?: string;
+  rating: number;
 }

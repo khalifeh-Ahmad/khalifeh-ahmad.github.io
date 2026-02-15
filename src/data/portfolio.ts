@@ -4,6 +4,8 @@ import {
   Certification,
   Skill,
   ProfileData,
+  Project,
+  Testimonial
 } from "../types";
 
 export const profileData: ProfileData = {
@@ -166,4 +168,67 @@ export const skills: Skill[] = [
   { name: "Notion", category: "tools" },
   { name: "Software Testing", category: "tools" },
   { name: "Playwright", category: "tools" },
+];
+
+export const projects: Project[] = [
+  {
+    id: "1",
+    title: "E-Commerce Platform",
+    description:
+      "Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, product management, shopping cart, and payment integration with Stripe.",
+    tags: ["React", "Node.js", "MongoDB", "Stripe", "TypeScript"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/yourusername/project",
+    featured: true,
+  },
+  {
+    id: "2",
+    title: "Task Management Dashboard",
+    description:
+      "Responsive dashboard for project and task management with real-time updates using Socket.io. Built with React and Material-UI.",
+    tags: ["React", "Socket.io", "Material-UI", "Redux"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/yourusername/project",
+    featured: true,
+  },
+  {
+    id: "3",
+    title: "Weather App",
+    description:
+      "Real-time weather application using OpenWeatherMap API. Features location detection, 5-day forecast, and beautiful weather animations.",
+    tags: ["React", "API Integration", "CSS Animations"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/yourusername/project",
+    featured: false,
+  },
+];
+
+export const testimonials: Testimonial[] = [
+  {
+    id: "1",
+    name: "John Smith",
+    position: "CTO",
+    company: "Tech Corp",
+    message:
+      "Khalifeh is an exceptional developer who delivers high-quality work on time. His attention to detail and problem-solving skills are outstanding.",
+    rating: 5,
+  },
+  {
+    id: "2",
+    name: "Sarah Johnson",
+    position: "Project Manager",
+    company: "Digital Agency",
+    message:
+      "Working with Khalifeh was a pleasure. He brought creative solutions to complex problems and communicated effectively throughout the project.",
+    rating: 5,
+  },
+  {
+    id: "3",
+    name: "Michael Chen",
+    position: "Lead Developer",
+    company: "StartupXYZ",
+    message:
+      "Khalifeh's technical expertise in React and TypeScript helped us build a robust and scalable application. Highly recommended!",
+    rating: 5,
+  },
 ];

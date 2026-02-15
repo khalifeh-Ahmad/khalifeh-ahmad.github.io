@@ -3,6 +3,7 @@ import styles from "./Hero.module.css";
 import { profileData } from "../../data/portfolio";
 
 const Hero: React.FC = () => {
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
