@@ -12,7 +12,7 @@
   font-size: 3rem;
   font-weight: 800;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   color: #1f2937;
   position: relative;
   padding-bottom: 1rem;
@@ -30,101 +30,180 @@
   border-radius: 2px;
 }
 
-.content {
+.magazineLayout {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 3rem;
 }
 
-.description {
+/* Featured Quote */
+.featuredQuote {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 3rem;
+  border-radius: 24px;
+  color: white;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.quoteIcon {
+  font-size: 8rem;
+  font-family: Georgia, serif;
+  opacity: 0.2;
+  position: absolute;
+  top: -1rem;
+  left: 2rem;
+  line-height: 1;
+}
+
+.quoteText {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.quoteAuthor {
+  font-size: 1rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* Article */
+.article {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.articleSection {
+  margin-bottom: 2.5rem;
+}
+
+.articleSection:last-child {
+  margin-bottom: 0;
+}
+
+.articleHeading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.headingAccent {
+  color: #667eea;
+  font-size: 1.25rem;
+}
+
+.articleText {
   font-size: 1.125rem;
   line-height: 1.8;
   color: #4b5563;
-  margin-bottom: 2rem;
-  text-align: justify;
+  margin: 0;
 }
 
-.highlights {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+.mark {
+  background: linear-gradient(120deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  color: #667eea;
+  font-weight: 600;
 }
 
-.highlight {
+/* Sidebar */
+.sidebar {
   display: flex;
-  gap: 1rem;
-  padding: 1.5rem;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebarCard {
   background: white;
-  border-radius: 12px;
+  padding: 2rem;
+  border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
 }
 
-.highlight:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.icon {
-  width: 50px;
-  height: 50px;
-  min-width: 50px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.highlight h3 {
-  font-size: 1.125rem;
+.sidebarTitle {
+  font-size: 1.25rem;
   font-weight: 700;
   color: #1f2937;
-  margin-bottom: 0.25rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e5e7eb;
 }
 
-.highlight p {
-  font-size: 0.95rem;
-  color: #6b7280;
+.strengthsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.stats {
+.strengthsList li {
+  padding: 0.75rem 0;
+  color: #4b5563;
+  font-size: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.strengthsList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.miniStats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 }
 
-.stat {
+.miniStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding: 2rem;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 12px;
 }
 
-.stat:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.statNumber {
-  font-size: 3rem;
+.miniNumber {
+  font-size: 2rem;
   font-weight: 800;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  line-height: 1;
   margin-bottom: 0.5rem;
 }
 
-.statLabel {
-  font-size: 1rem;
+.miniLabel {
+  font-size: 0.875rem;
   color: #6b7280;
   font-weight: 500;
+}
+
+@media (max-width: 968px) {
+  .magazineLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .quoteText {
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -136,24 +215,23 @@
     font-size: 2.5rem;
   }
 
-  .description {
+  .featuredQuote {
+    padding: 2rem;
+  }
+
+  .quoteText {
+    font-size: 1.25rem;
+  }
+
+  .article {
+    padding: 2rem;
+  }
+
+  .articleText {
     font-size: 1rem;
   }
 
-  .highlights {
-    grid-template-columns: 1fr;
-  }
-
-  .stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .stat {
-    padding: 1.5rem 1rem;
-  }
-
-  .statNumber {
-    font-size: 2.5rem;
+  .miniStats {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
