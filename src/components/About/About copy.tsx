@@ -3,7 +3,12 @@ import styles from "./About.module.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const About: React.FC = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const titleAnimation = useScrollAnimation(0.1);
+  const quoteAnimation = useScrollAnimation(0.15);
+  const articleAnimation = useScrollAnimation(0.15);
+  const sidebarAnimation = useScrollAnimation(0.15);
+  const statsAnimation = useScrollAnimation(0.2);
+
   const [counts, setCounts] = useState({
     exp: 0,
     tech: 0,
@@ -12,7 +17,7 @@ const About: React.FC = () => {
   });
 
   useEffect(() => {
-    if (isVisible) {
+    if (statsAnimation.isVisible) {
       const duration = 2000;
       const steps = 60;
       const stepDuration = duration / steps;
@@ -43,15 +48,28 @@ const About: React.FC = () => {
 
       return () => clearInterval(timer);
     }
-  }, [isVisible]);
+  }, [statsAnimation.isVisible]);
+
   return (
-    <section id="about" className={styles.about} ref={ref}>
+    <section id="about" className={styles.about}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>About Me</h2>
+        <h2 
+          ref={titleAnimation.ref}
+          className={`${styles.sectionTitle} animate-on-scroll fade-in-up ${
+            titleAnimation.isVisible ? "visible" : ""
+          }`}
+        >
+          About Me
+        </h2>
 
         <div className={styles.magazineLayout}>
           {/* Featured Quote */}
-          <div className={styles.featuredQuote}>
+          <div 
+            ref={quoteAnimation.ref}
+            className={`${styles.featuredQuote} animate-on-scroll fade-in-up ${
+              quoteAnimation.isVisible ? "visible" : ""
+            }`}
+          >
             <div className={styles.quoteIcon}>"</div>
             <p className={styles.quoteText}>
               I view applications as connected systems rather than isolated
@@ -63,7 +81,12 @@ const About: React.FC = () => {
           </div>
 
           {/* Main Article */}
-          <article className={styles.article}>
+          <article 
+            ref={articleAnimation.ref}
+            className={`${styles.article} animate-on-scroll fade-in-left ${
+              articleAnimation.isVisible ? "visible" : ""
+            }`}
+          >
             <div className={styles.articleSection}>
               <h3 className={styles.articleHeading}>
                 <span className={styles.headingAccent}>✦</span>
@@ -116,7 +139,12 @@ const About: React.FC = () => {
           </article>
 
           {/* Sidebar */}
-          <aside className={styles.sidebar}>
+          <aside 
+            ref={sidebarAnimation.ref}
+            className={`${styles.sidebar} animate-on-scroll fade-in-right ${
+              sidebarAnimation.isVisible ? "visible" : ""
+            }`}
+          >
             <div className={styles.sidebarCard}>
               <h4 className={styles.sidebarTitle}>Core Strengths</h4>
               <ul className={styles.strengthsList}>
@@ -132,20 +160,55 @@ const About: React.FC = () => {
               <h4 className={styles.sidebarTitle}>By The Numbers</h4>
               <div className={styles.miniStats}>
                 <div className={styles.miniStat}>
-                  <span className={styles.miniNumber}>{counts.exp}+</span>
+                  <span className={styles.miniNumber}>5+</span>
                   <span className={styles.miniLabel}>Years</span>
                 </div>
                 <div className={styles.miniStat}>
-                  <span className={styles.miniNumber}>{counts.tech}+</span>
+                  <span className={styles.miniNumber}>20+</span>
                   <span className={styles.miniLabel}>Tech</span>
                 </div>
                 <div className={styles.miniStat}>
-                  <span className={styles.miniNumber}>{counts.companies}</span>
+                  <span className={styles.miniNumber}>3</span>
                   <span className={styles.miniLabel}>Industries</span>
                 </div>
               </div>
             </div>
           </aside>
+        </div>
+      </div>
+
+      <div ref={statsAnimation.ref} className={styles.stats}>
+        <div
+          className={`${styles.stat} animate-on-scroll scale-in ${
+            statsAnimation.isVisible ? "visible" : ""
+          }`}
+        >
+          <div className={styles.statNumber}>{counts.exp}+</div>
+          <div className={styles.statLabel}>Years of Experience</div>
+        </div>
+        <div
+          className={`${styles.stat} animate-on-scroll scale-in ${
+            statsAnimation.isVisible ? "visible" : ""
+          }`}
+        >
+          <div className={styles.statNumber}>{counts.tech}+</div>
+          <div className={styles.statLabel}>Technologies Mastered</div>
+        </div>
+        <div
+          className={`${styles.stat} animate-on-scroll scale-in ${
+            statsAnimation.isVisible ? "visible" : ""
+          }`}
+        >
+          <div className={styles.statNumber}>{counts.companies}</div>
+          <div className={styles.statLabel}>Companies Worked With</div>
+        </div>
+        <div
+          className={`${styles.stat} animate-on-scroll scale-in ${
+            statsAnimation.isVisible ? "visible" : ""
+          }`}
+        >
+          <div className={styles.statNumber}>{counts.projects}+</div>
+          <div className={styles.statLabel}>Projects Delivered</div>
         </div>
       </div>
     </section>

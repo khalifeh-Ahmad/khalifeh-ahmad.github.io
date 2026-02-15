@@ -1,3 +1,4 @@
+import React from "react";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 interface AnimatedSectionProps {
@@ -13,13 +14,13 @@ export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   threshold = 0.1,
   className = "",
 }) => {
-  const { ref, isVisible, isExiting } = useScrollAnimation(threshold);
+  const { ref, isVisible } = useScrollAnimation(threshold);
 
   return (
     <div
       ref={ref}
       className={`animate-on-scroll ${animation} ${
-        isExiting ? "exiting" : isVisible ? "visible entering" : "hidden"
+        isVisible ? "visible" : ""
       } ${className}`}
     >
       {children}

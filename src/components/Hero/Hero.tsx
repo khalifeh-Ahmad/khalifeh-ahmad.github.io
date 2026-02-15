@@ -1,9 +1,10 @@
+// src/components/Hero/Hero.tsx
 import React from "react";
 import styles from "./Hero.module.css";
 import { profileData } from "../../data/portfolio";
+import ParticleBackground from "../ParticleBackground/ParticleBackground";
 
 const Hero: React.FC = () => {
-  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -13,11 +14,16 @@ const Hero: React.FC = () => {
 
   return (
     <section id="hero" className={styles.hero}>
+      <ParticleBackground />
+
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.greeting}>Hello, I'm</div>
+
           <h1 className={styles.name}>{profileData.name}</h1>
+
           <h2 className={styles.title}>{profileData.title}</h2>
+
           <p className={styles.location}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -35,6 +41,7 @@ const Hero: React.FC = () => {
             </svg>
             {profileData.location}
           </p>
+
           <p className={styles.summary}>{profileData.summary}</p>
 
           <div className={styles.buttons}>
