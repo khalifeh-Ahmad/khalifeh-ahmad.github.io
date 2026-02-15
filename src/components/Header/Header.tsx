@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Header.module.css';
-import { profileData } from '../../data/portfolio';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
