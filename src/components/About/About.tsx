@@ -3,7 +3,7 @@ import styles from "./About.module.css";
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 const About: React.FC = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, isVisible, isExiting } = useScrollAnimation();
   const [counts, setCounts] = useState({
     exp: 0,
     tech: 0,
@@ -132,54 +132,20 @@ const About: React.FC = () => {
               <h4 className={styles.sidebarTitle}>By The Numbers</h4>
               <div className={styles.miniStats}>
                 <div className={styles.miniStat}>
-                  <span className={styles.miniNumber}>5+</span>
+                  <span className={styles.miniNumber}>{counts.exp}+</span>
                   <span className={styles.miniLabel}>Years</span>
                 </div>
                 <div className={styles.miniStat}>
-                  <span className={styles.miniNumber}>20+</span>
+                  <span className={styles.miniNumber}>{counts.tech}+</span>
                   <span className={styles.miniLabel}>Tech</span>
                 </div>
                 <div className={styles.miniStat}>
-                  <span className={styles.miniNumber}>3</span>
+                  <span className={styles.miniNumber}>{counts.companies}</span>
                   <span className={styles.miniLabel}>Industries</span>
                 </div>
               </div>
             </div>
           </aside>
-        </div>
-      </div>
-      <div className={styles.stats}>
-        <div
-          className={`${styles.stat} animate-on-scroll scale-in ${
-            isVisible ? "visible" : ""
-          }`}
-        >
-          <div className={styles.statNumber}>{counts.exp}+</div>
-          <div className={styles.statLabel}>Years of Experience</div>
-        </div>
-        <div
-          className={`${styles.stat} animate-on-scroll scale-in ${
-            isVisible ? "visible" : ""
-          }`}
-        >
-          <div className={styles.statNumber}>{counts.tech}+</div>
-          <div className={styles.statLabel}>Technologies Mastered</div>
-        </div>
-        <div
-          className={`${styles.stat} animate-on-scroll scale-in ${
-            isVisible ? "visible" : ""
-          }`}
-        >
-          <div className={styles.statNumber}>{counts.companies}</div>
-          <div className={styles.statLabel}>Companies Worked With</div>
-        </div>
-        <div
-          className={`${styles.stat} animate-on-scroll scale-in ${
-            isVisible ? "visible" : ""
-          }`}
-        >
-          <div className={styles.statNumber}>{counts.projects}+</div>
-          <div className={styles.statLabel}>Projects Delivered</div>
         </div>
       </div>
     </section>

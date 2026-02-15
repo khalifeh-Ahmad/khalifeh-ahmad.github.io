@@ -15,6 +15,7 @@ export const profileData: ProfileData = {
   email: "khalifeh92ahmed@hotmail.com",
   phone: "(+60) 1161686507",
   linkedin: "https://www.linkedin.com/in/khalifeh-ahmad/",
+  github:"https://github.com/khalifeh-Ahmad",
   dateOfBirth: "16 May 1992",
   gender: "Male",
   summary:
