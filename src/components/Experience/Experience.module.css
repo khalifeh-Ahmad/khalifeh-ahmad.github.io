@@ -68,7 +68,7 @@
   transition: transform 0.3s ease, 
               background-color 0.3s ease, 
               box-shadow 0.3s ease, 
-              opacity 0.3s ease;
+              opacity 0.3s ease !important;
 }
 
 .timelineItem:hover .timelineDot {
@@ -84,7 +84,7 @@
   transition: transform 0.3s ease, 
               background-color 0.3s ease, 
               box-shadow 0.3s ease, 
-              opacity 0.3s ease;
+              opacity 0.3s ease !important;
   border-left: 4px solid var(--primary-color);
 }
 

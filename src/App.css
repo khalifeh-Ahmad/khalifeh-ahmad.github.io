@@ -115,14 +115,14 @@ code {
 }
 
 /* ✅ FIXED: Smooth theme transitions WITHOUT breaking animations */
-/* Only transition theme-related colors, not transform/opacity */
+/* Allow theme-related transitions plus transform/opacity for animations */
 .App {
   transition: background-color 0.3s ease;
 }
 
-/* Apply color transitions to all elements for theme switching */
+/* Apply transitions to theme-related properties AND animation properties */
 .App * {
-  transition-property: background-color, color, border-color, box-shadow, fill, stroke;
+  transition-property: background-color, color, border-color, box-shadow, fill, stroke, transform, opacity;
   transition-duration: 0.3s;
   transition-timing-function: ease;
 }

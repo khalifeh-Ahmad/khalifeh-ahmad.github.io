@@ -7,7 +7,7 @@
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease !important;
   font-family: inherit;
 }
 
@@ -79,7 +79,7 @@
 
 /* Animation */
 .downloadBtn svg {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease !important;
 }
 
 .downloadBtn:hover svg {

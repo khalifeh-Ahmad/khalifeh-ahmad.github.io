@@ -95,7 +95,7 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease !important;
 }
 
 .primaryBtn {
@@ -140,7 +140,7 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   color: white;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease !important;
   backdrop-filter: blur(10px);
 }
 

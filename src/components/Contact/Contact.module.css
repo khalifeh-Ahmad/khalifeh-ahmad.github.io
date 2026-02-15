@@ -118,7 +118,7 @@
   color: var(--text-dark);
   font-weight: 500;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease !important;
 }
 
 .infoItem a:hover {
@@ -145,7 +145,7 @@
   transition: transform 0.3s ease, 
               background-color 0.3s ease, 
               box-shadow 0.3s ease, 
-              opacity 0.3s ease;
+              opacity 0.3s ease !important;
 }
 
 .socialLink:hover {
@@ -183,7 +183,7 @@
   transition: transform 0.3s ease, 
               background-color 0.3s ease, 
               box-shadow 0.3s ease, 
-              opacity 0.3s ease;
+              opacity 0.3s ease !important;
   font-family: inherit;
   background: var(--bg-light);
 }
@@ -218,7 +218,7 @@
   transition: transform 0.3s ease, 
               background-color 0.3s ease, 
               box-shadow 0.3s ease, 
-              opacity 0.3s ease;
+              opacity 0.3s ease !important;
 }
 
 .submitBtn:hover {

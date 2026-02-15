@@ -166,7 +166,7 @@
   cursor: pointer;
   text-align: left;
   padding: 0;
-  transition: padding-left 0.3s ease, color 0.3s ease;
+  transition: padding-left 0.3s ease, color 0.3s ease !important;
   position: relative;
   padding-left: 0;
 }
@@ -181,7 +181,7 @@
   width: 0;
   height: 2px;
   background: white;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease !important;
 }
 
 .linkList button:hover,
@@ -244,7 +244,7 @@
   transition: transform 0.3s ease, 
               background-color 0.3s ease, 
               box-shadow 0.3s ease, 
-              opacity 0.3s ease;
+              opacity 0.3s ease !important;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -295,7 +295,7 @@
   transition: transform 0.3s ease, 
               background-color 0.3s ease, 
               box-shadow 0.3s ease, 
-              opacity 0.3s ease;
+              opacity 0.3s ease !important;
   backdrop-filter: blur(10px);
 }
 
