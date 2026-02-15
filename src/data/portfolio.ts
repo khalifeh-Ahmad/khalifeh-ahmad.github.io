@@ -16,7 +16,7 @@ export const profileData: ProfileData = {
   dateOfBirth: "16 May 1992",
   gender: "Male",
   summary:
-    "Front-End Developer with 5+ years of experience building responsive, user-friendly web interfaces and scalable front-end architectures. Skilled in modern frameworks (React, Angular), TypeScript/JavaScript, UI/UX best practices, and API integrations. Strong background in web science and software engineering with experience working in Agile teams, collaborating with designers and backend developers, and delivering clean, maintainable code. Passionate about creating seamless digital experiences and continuously learning new technologies.",
+    "Front-End Developer with 5+ years of experience building responsive, user-friendly web interfaces and scalable front-end architectures. Skilled in modern frameworks like React, TypeScript/JavaScript, UI/UX best practices, and API integrations. Strong background in web science and software engineering with experience working in Agile teams, collaborating with designers and backend developers, and delivering clean, maintainable code. Passionate about creating seamless digital experiences and continuously learning new technologies.",
 };
 
 export const experiences: Experience[] = [
