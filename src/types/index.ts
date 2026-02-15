@@ -41,4 +41,5 @@ export interface ProfileData {
   summary: string;
   dateOfBirth: string;
   gender: string;
+  aboutme:string
 }

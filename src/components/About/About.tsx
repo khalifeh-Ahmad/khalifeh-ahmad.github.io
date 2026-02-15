@@ -9,7 +9,7 @@ const About: React.FC = () => {
         <h2 className={styles.sectionTitle}>About Me</h2>
         <div className={styles.content}>
           <div className={styles.textContent}>
-            <p className={styles.description}>{profileData.summary}</p>
+            <p className={styles.description}>{profileData.aboutme}</p>
 
             <div className={styles.highlights}>
               <div className={styles.highlight}>
@@ -30,7 +30,7 @@ const About: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3>5+ Years Experience</h3>
+                  <h3>6+ Years Experience</h3>
                   <p>Building modern web applications</p>
                 </div>
               </div>
@@ -121,15 +121,15 @@ const About: React.FC = () => {
               <div className={styles.statLabel}>Years of Experience</div>
             </div>
             <div className={styles.stat}>
-              <div className={styles.statNumber}>20+</div>
+              <div className={styles.statNumber}>13+</div>
               <div className={styles.statLabel}>Technologies Mastered</div>
             </div>
             <div className={styles.stat}>
-              <div className={styles.statNumber}>4</div>
+              <div className={styles.statNumber}>5</div>
               <div className={styles.statLabel}>Companies Worked With</div>
             </div>
             <div className={styles.stat}>
-              <div className={styles.statNumber}>50+</div>
+              <div className={styles.statNumber}>11+</div>
               <div className={styles.statLabel}>Projects Delivered</div>
             </div>
           </div>

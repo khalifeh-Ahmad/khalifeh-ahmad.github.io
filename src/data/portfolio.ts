@@ -16,6 +16,10 @@ export const profileData: ProfileData = {
   dateOfBirth: "16 May 1992",
   gender: "Male",
   summary:
+    "Experienced Front-End/QA Engineer with over than 5 years of expertise in building modern, scalable, and responsive web applications using React, TypeScript, JavaScript, HTML5, CSS3, and. Strong background in component-based architecture, state management, UI/UX optimization, API integration, and performance tuning. Skilled in developing reusable" +
+    "interfaces, improving user experience, and collaborating with design and backend teams in Agile environments." +
+    "Proven ability to deliver high-quality web applications, optimize existing systems, and contribute to fast-paced engineering teams.",
+  aboutme:
     "I build web interfaces with React and TypeScript, with attention to how they integrate with APIs, databases, and business logic behind the scenes. My development approach includes testing considerations from the start—because maintainable code is easier to validate." +
     "My background includes frontend development at Source Code, full-cycle software engineering and testing at Syriatel Mobile Telecom, and currently designing workflow automations with N8N at Maids.cc. A Master's in Web Science taught me to view applications as connected systems rather than isolated layers. I'm now complementing that technical foundation with an MBA at Geomatika University to bridge technology implementation with business context.",
 };
