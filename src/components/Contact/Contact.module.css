@@ -7,7 +7,28 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+.resumeDownload {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  text-align: center;
+}
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--primary-color),
+    transparent
+  );
+  margin-bottom: 1.5rem;
+}
 
+.resumeTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
 .sectionTitle {
   font-size: 3rem;
   font-weight: 800;

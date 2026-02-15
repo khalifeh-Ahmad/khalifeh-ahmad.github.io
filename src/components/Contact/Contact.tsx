@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Contact.module.css";
 import { profileData } from "../../data/portfolio";
+import ResumeDownload from "../ResumeDownload/ResumeDownload";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -204,6 +205,11 @@ const Contact: React.FC = () => {
                 </svg>
               </a>
             </div>
+            <div className={styles.resumeDownload}>
+              <div className={styles.divider}></div>
+              <h4 className={styles.resumeTitle}>Need My Full Resume?</h4>
+              <ResumeDownload variant="primary" size="medium" />
+            </div>
           </div>
 
           {/* Contact Form */}
@@ -242,7 +248,7 @@ const Contact: React.FC = () => {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                rows={6}
+                rows={15}
                 placeholder="Tell me about your project..."
               />
             </div>
