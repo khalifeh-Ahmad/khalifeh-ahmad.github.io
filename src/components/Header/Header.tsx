@@ -42,7 +42,7 @@ const Header: React.FC = () => {
       <div className={styles.container}>
         {/* Logo - Left Side */}
         <div className={styles.logo} onClick={() => scrollToSection('hero')}>
-          <div className={styles.logoIcon}>K</div>
+          <div className={styles.logoIcon}>KhA</div>
           <div className={styles.logoTextWrapper}>
             <span className={styles.logoName}>Khalifeh</span>
             <span className={styles.logoTitle}>Developer</span>

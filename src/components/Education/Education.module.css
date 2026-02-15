@@ -65,7 +65,10 @@
   padding: 2rem;
   border-radius: var(--border-radius);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, 
+              background-color 0.3s ease, 
+              box-shadow 0.3s ease, 
+              opacity 0.3s ease;
   border-left: 4px solid var(--primary-color);
 }
 
@@ -129,7 +132,10 @@
   color: var(--primary-color);
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, 
+              background-color 0.3s ease, 
+              box-shadow 0.3s ease, 
+              opacity 0.3s ease;
 }
 
 .link:hover {
@@ -148,7 +154,10 @@
   padding: 1.5rem;
   border-radius: var(--border-radius);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, 
+              background-color 0.3s ease, 
+              box-shadow 0.3s ease, 
+              opacity 0.3s ease;
   display: flex;
   gap: 1rem;
 }
@@ -203,7 +212,10 @@
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, 
+              background-color 0.3s ease, 
+              box-shadow 0.3s ease, 
+              opacity 0.3s ease;
 }
 
 .certLink:hover {

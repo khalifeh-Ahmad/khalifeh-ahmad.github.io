@@ -121,7 +121,10 @@
   background: #f3f4f6;
   border-radius: var(--border-radius);
   color: var(--primary-color);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, 
+              background-color 0.3s ease, 
+              box-shadow 0.3s ease, 
+              opacity 0.3s ease;
 }
 
 .socialLink:hover {
@@ -156,7 +159,10 @@
   font-size: 1rem;
   border: 2px solid #e5e7eb;
   border-radius: var(--border-radius);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, 
+              background-color 0.3s ease, 
+              box-shadow 0.3s ease, 
+              opacity 0.3s ease;
   font-family: inherit;
   background: var(--bg-light);
 }
@@ -188,7 +194,10 @@
   border: none;
   border-radius: var(--border-radius);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, 
+              background-color 0.3s ease, 
+              box-shadow 0.3s ease, 
+              opacity 0.3s ease;
 }
 
 .submitBtn:hover {

@@ -77,6 +77,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-dark);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 code {
@@ -113,24 +114,24 @@ code {
   color: var(--text-dark);
 }
 
-/* Smooth transitions for theme changes */
-body * {
-  transition: background-color 0.3s ease, 
-              color 0.3s ease, 
-              border-color 0.3s ease,
-              box-shadow 0.3s ease !important;
+/* ✅ FIXED: Smooth theme transitions WITHOUT breaking animations */
+/* Only transition theme-related colors, not transform/opacity */
+.App {
+  transition: background-color 0.3s ease;
 }
 
-/* Prevent transition on specific properties */
-body *::before,
-body *::after {
-  transition: background-color 0.3s ease, 
-              color 0.3s ease, 
-              border-color 0.3s ease !important;
+/* Apply color transitions to all elements for theme switching */
+.App * {
+  transition-property: background-color, color, border-color, box-shadow, fill, stroke;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }
 
 /* Prevent transition on page load */
 .preload,
-.preload * {
+.preload *,
+.preload *::before,
+.preload *::after {
   transition: none !important;
+  animation: none !important;
 }
