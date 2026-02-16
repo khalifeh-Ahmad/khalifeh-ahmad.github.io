@@ -1,0 +1,310 @@
+
+.profileImageContainer {
+  position: relative;
+  width: 350px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animated Gradient Border */
+.gradientBorder {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(
+    45deg,
+    #667eea,
+    #764ba2,
+    #f093fb,
+    #4facfe,
+    #00f2fe,
+    #667eea
+  );
+  background-size: 300% 300%;
+  animation: gradientRotate 4s ease infinite !important;
+  filter: blur(8px);
+  opacity: 0.8;
+}
+
+.gradientBorderInner {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(
+    -45deg,
+    #667eea,
+    #764ba2,
+    #f093fb,
+    #4facfe,
+    #00f2fe,
+    #667eea
+  );
+  background-size: 300% 300%;
+  animation: gradientRotate 6s ease infinite reverse !important;
+  filter: blur(10px);
+  opacity: 0.6;
+}
+
+@keyframes gradientRotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glass Frame */
+.glassFrame {
+  position: relative;
+  width: 350px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 4px 16px 0 rgba(31, 38, 135, 0.37),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease !important;
+  transform-style: preserve-3d;
+  animation: float 6s ease-in-out infinite !important;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+  user-select: none; /* Prevent text selection on tap */
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.glassFrame:hover {
+  box-shadow: 
+    0 6px 20px 0 rgba(102, 126, 234, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Image Wrapper */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.profileImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.6s ease, transform 0.6s ease !important;
+}
+
+/* Professional Image - Default State */
+.professionalImage {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.professionalImage.hidden {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+/* Casual Image - Hover State */
+.casualImage {
+  opacity: 0;
+  transform: scale(0.9);
+  z-index: 1;
+}
+
+.casualImage.visible {
+  opacity: 1;
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+/* Glass Overlay Effect */
+.glassOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Shine Effect */
+.shineEffect {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.5s ease !important;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.glassFrame:hover .shineEffect {
+  opacity: 1;
+  animation: shine 1.5s ease !important;
+}
+
+@keyframes shine {
+  0% {
+    transform: rotate(45deg) translateX(-100%);
+  }
+  100% {
+    transform: rotate(45deg) translateX(100%);
+  }
+}
+
+/* Hover Indicator Text */
+.hoverIndicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.3s ease !important;
+  z-index: 5;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hoverIndicator.fadeOut {
+  opacity: 0;
+}
+
+/* Floating Particles */
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+  animation: particleFloat 3s ease-in-out infinite !important;
+  z-index: 1;
+}
+
+.particle:nth-child(2) {
+  animation-delay: 0.5s !important;
+  animation-duration: 3.5s !important;
+}
+
+.particle:nth-child(3) {
+  animation-delay: 1s !important;
+  animation-duration: 4s !important;
+}
+
+.particle:nth-child(4) {
+  animation-delay: 1.5s !important;
+  animation-duration: 3.2s !important;
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .profileImageContainer {
+    width: 280px;
+    height: 340px;
+  }
+
+  .glassFrame {
+    width: 240px;
+    height: 300px;
+  }
+
+  .hoverIndicator {
+    font-size: 11px;
+    padding: 6px 12px;
+    bottom: 15px;
+    animation: pulse 2s ease-in-out infinite !important;
+  }
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .profileImageContainer {
+    width: 240px;
+    height: 300px;
+  }
+
+  .glassFrame {
+    width: 200px;
+    height: 260px;
+  }
+
+  .particle {
+    width: 6px;
+    height: 6px;
+  }
+
+  .hoverIndicator {
+    font-size: 10px;
+    padding: 5px 10px;
+    bottom: 10px;
+  }
+}

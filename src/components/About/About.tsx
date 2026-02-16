@@ -13,7 +13,7 @@ const About: React.FC = () => {
 
   useEffect(() => {
     if (isVisible) {
-      const duration = 2000;
+      const duration = 10000;
       const steps = 60;
       const stepDuration = duration / steps;
 

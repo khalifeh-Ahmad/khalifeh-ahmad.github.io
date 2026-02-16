@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./Hero.module.css";
 import { profileData } from "../../data/portfolio";
 import ParticleBackground from "../ParticleBackground/ParticleBackground";
+import ProfileImage from "../ProfileImage/ProfileImage";
 
 const Hero: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -122,17 +123,10 @@ const Hero: React.FC = () => {
         </div>
 
         <div className={styles.imageContainer}>
-          <img
-            src="/profile.png"
+          <ProfileImage
+            professionalSrc="/profile.png"
+            casualSrc="/sec-profile.jpg"
             alt={profileData.name}
-            style={{
-              width: "275px",
-              height: "325px",
-              borderRadius: "50%",
-              objectFit: "cover",
-              border: "4px solid rgba(255, 255, 255, 0.2)",
-              boxShadow: "0 20px 60px rgba(0, 0, 0, 0.3)",
-            }}
           />
         </div>
       </div>
