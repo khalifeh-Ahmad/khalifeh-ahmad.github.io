@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Projects.module.css";
-import { projects } from "../../data/portfolio";
-import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { projects } from "../../../data/portfolio";
+import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 const Projects: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();

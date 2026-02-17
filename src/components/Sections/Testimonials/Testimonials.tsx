@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Testimonials.module.css";
-import { testimonials } from "../../data/portfolio";
-import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { testimonials } from "../../../data/portfolio";
+import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 const Testimonials: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);

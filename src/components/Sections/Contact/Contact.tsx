@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Contact.module.css";
-import { profileData } from "../../data/portfolio";
-import ResumeDownload from "../ResumeDownload/ResumeDownload";
+import { profileData } from "../../../data/portfolio";
+import ResumeDownload from "../../Features/ResumeDownload/ResumeDownload";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({

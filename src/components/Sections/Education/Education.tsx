@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Education.module.css";
-import { education, certifications } from "../../data/portfolio";
+import { education, certifications } from "../../../data/portfolio";
 
 const Education: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Skills.module.css";
-import { skills } from "../../data/portfolio";
+import { skills } from "../../../data/portfolio";
 
 const Skills: React.FC = () => {
   const frontend = skills.filter((s) => s.category === "frontend");

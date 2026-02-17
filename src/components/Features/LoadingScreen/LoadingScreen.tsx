@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./LoadingScreen.module.css";
-import { profileData } from "../../data/portfolio";
+import { profileData } from "../../../data/portfolio";
 
 const LoadingScreen: React.FC = () => {
   const [progress, setProgress] = useState(0);

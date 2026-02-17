@@ -1,8 +1,8 @@
 // src/components/Hero/Hero.tsx
 import React from "react";
 import styles from "./Hero.module.css";
-import { profileData } from "../../data/portfolio";
-import ParticleBackground from "../ParticleBackground/ParticleBackground";
+import { profileData } from "../../../data/portfolio";
+import ParticleBackground from "../../Features/ParticleBackground/ParticleBackground";
 import ProfileImage from "../ProfileImage/ProfileImage";
 
 const Hero: React.FC = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.css";
-import { profileData } from "../../data/portfolio";
+import { profileData } from "../../../data/portfolio";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();

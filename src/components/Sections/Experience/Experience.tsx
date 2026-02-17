@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Experience.module.css";
-import { experiences } from "../../data/portfolio";
+import { experiences } from "../../../data/portfolio";
 
 const Experience: React.FC = () => {
   return (
