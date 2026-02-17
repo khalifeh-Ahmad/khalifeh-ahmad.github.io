@@ -1,0 +1,379 @@
+
+/* Override the global App.css transition that kills opacity */
+.section * {
+  transition-property: background-color, color, border-color,
+                        box-shadow, width, transform !important;
+  /* NOTE: opacity is intentionally excluded here */
+}
+
+/* Ensure all content is always visible */
+.header,
+.tabs,
+.content,
+.chartWrapper,
+.chartInner,
+.radarSvg,
+.barsWrapper,
+.bars,
+.skillBar,
+.stats,
+.stat {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Only animate the skill bars width, not opacity */
+.skillBarFill {
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.section {
+  position: relative;
+  padding: 7rem 2rem;
+  background: rgb(76, 75, 75);
+  overflow: hidden;
+}
+
+/* Dot-grid background */
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(102, 126, 234, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.bgGlow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(
+    ellipse,
+    rgba(102, 126, 234, 0.1) 0%,
+    rgba(118, 75, 162, 0.05) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ─── Container ───────────────────────────────────── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Header ──────────────────────────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionLabel {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  padding: 0.35rem 1.1rem;
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
+  border-radius: 999px;
+  background: rgba(var(--primary-rgb), 0.07);
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(
+    135deg,
+    #ffffff 40%,
+    var(--primary-color) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0.5rem 0 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.45);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ─── Tabs ────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 0.55rem 1.6rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  /* Override the global transition from App.css */
+  transition: background-color 0.25s ease,
+              color 0.25s ease,
+              border-color 0.25s ease,
+              transform 0.25s ease,
+              box-shadow 0.25s ease !important;
+}
+
+.tab:hover {
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(var(--primary-rgb), 0.4);
+  background: rgba(var(--primary-rgb), 0.08);
+  transform: translateY(-2px);
+}
+
+.tabActive {
+  background: var(--gradient) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 4px 20px rgba(var(--primary-rgb), 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ─── Main Content ────────────────────────────────── */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 4rem;
+  /* IMPORTANT: min-height ensures content is not squashed */
+  min-height: 400px;
+}
+
+/* ─── Radar Chart ─────────────────────────────────── */
+.chartWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.chartInner {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  background: rgba(102, 126, 234, 0.03);
+  border: 1px solid rgba(102, 126, 234, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 60px rgba(102, 126, 234, 0.1),
+    inset 0 0 40px rgba(102, 126, 234, 0.05);
+}
+
+.radarSvg {
+  width: 340px;
+  height: 340px;
+  overflow: visible;
+}
+
+.chartLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.chartLabel span {
+  color: var(--primary-color);
+}
+
+/* ─── Skill Bars ──────────────────────────────────── */
+.barsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* Ensure it's never hidden by animation opacity */
+  min-height: 300px;
+}
+
+.barsTitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  margin: 0 0 1.25rem;
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.skillBar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.skillBarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skillBarName {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.skillBarIcon {
+  font-size: 0.9rem;
+  width: 22px;
+  text-align: center;
+}
+
+.skillBarValue {
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.skillBarTrack {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.skillBarFill {
+  height: 100%;
+  border-radius: 999px;
+  width: 0;
+}
+
+/* ─── Stats Row ───────────────────────────────────── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 2.5rem;
+  background: rgba(102, 126, 234, 0.04);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  border-radius: var(--border-radius-lg);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  animation: fadeInUp 0.6s ease both;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.statLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ─── Responsive ──────────────────────────────────── */
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    min-height: unset;
+  }
+
+  .chartWrapper {
+    order: -1;
+  }
+
+  .chartInner {
+    width: 300px;
+    height: 300px;
+  }
+
+  .radarSvg {
+    width: 300px;
+    height: 300px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 4rem 1rem;
+  }
+
+  .chartInner {
+    width: 260px;
+    height: 260px;
+  }
+
+  .radarSvg {
+    width: 260px;
+    height: 260px;
+  }
+
+  .tab {
+    padding: 0.45rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statValue {
+    font-size: 1.6rem;
+  }
+}

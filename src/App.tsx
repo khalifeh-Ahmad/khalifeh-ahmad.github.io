@@ -5,7 +5,7 @@ import Hero from "./components/Sections/Hero/Hero";
 import About from "./components/Sections/About/About";
 import Experience from "./components/Sections/Experience/Experience";
 import Education from "./components/Sections/Education/Education";
-import Skills from "./components/Sections/Skills/Skills";
+//import Skills from "./components/Sections/Skills/Skills";
 import Contact from "./components/Sections/Contact/Contact";
 import Footer from "./components/Sections/Footer/Footer";
 import ThemeSwitcher from "./components/Features/ThemeSwitcher/ThemeSwitcher";
@@ -13,6 +13,7 @@ import LoadingScreen from "./components/Features/LoadingScreen/LoadingScreen";
 //import Projects from "./components/Sections/Projects/Projects";
 //import Testimonials from "./components/Sections/Testimonials/Testimonials";
 import './styles/animations.css';
+import SkillRadar from "./components/Features/SkillRadar/SkillRadar";
 
 function App() {
   return (
@@ -22,8 +23,9 @@ function App() {
       <Hero />
       <About />
       <Experience />
+      <SkillRadar />
       <Education />
-      <Skills />
+      {/* <Skills /> */}
       {/* <Projects /> */}
       {/* <Testimonials /> */}
       <Contact />
