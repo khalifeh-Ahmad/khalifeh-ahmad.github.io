@@ -219,6 +219,29 @@
   padding: 2rem;
   width: 100%;
   max-width: 400px;
+  position: relative;
+}
+
+.closeMenuBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  color: var(--text-dark);
+}
+
+.closeMenuBtn:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  transform: rotate(90deg);
 }
 
 .mobileNav button {
@@ -230,9 +253,9 @@
   cursor: pointer;
   padding: 1rem;
   text-align: center;
-  transition: transform 0.3s ease, 
-              background-color 0.3s ease, 
-              box-shadow 0.3s ease, 
+  transition: transform 0.3s ease,
+              background-color 0.3s ease,
+              box-shadow 0.3s ease,
               opacity 0.3s ease !important;
   border-radius: 12px;
 }
