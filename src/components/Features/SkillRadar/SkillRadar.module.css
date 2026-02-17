@@ -28,9 +28,12 @@
 }
 .section {
   position: relative;
-  padding: 7rem 2rem;
-  background: rgb(76, 75, 75);
+  padding: 6rem 2rem;
+  background: var(--bg-light);
   overflow: hidden;
+  transition: background-color 0.3s ease,
+              box-shadow 0.3s ease,
+              opacity 0.3s ease !important;
 }
 
 /* Dot-grid background */
@@ -39,7 +42,7 @@
   inset: 0;
   background-image: radial-gradient(
     circle,
-    rgba(102, 126, 234, 0.06) 1px,
+    rgba(var(--primary-rgb), 0.06) 1px,
     transparent 1px
   );
   background-size: 32px 32px;
@@ -55,8 +58,8 @@
   height: 500px;
   background: radial-gradient(
     ellipse,
-    rgba(102, 126, 234, 0.1) 0%,
-    rgba(118, 75, 162, 0.05) 50%,
+    rgba(var(--primary-rgb), 0.1) 0%,
+    rgba(var(--secondary-rgb), 0.05) 50%,
     transparent 70%
   );
   pointer-events: none;
@@ -96,7 +99,7 @@
   letter-spacing: -0.03em;
   background: linear-gradient(
     135deg,
-    #ffffff 40%,
+    var(--text-dark) 40%,
     var(--primary-color) 100%
   );
   -webkit-background-clip: text;
@@ -107,7 +110,7 @@
 
 .sectionSubtitle {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-light);
   max-width: 480px;
   margin: 0 auto;
   line-height: 1.7;
@@ -127,9 +130,9 @@
   font-size: 0.88rem;
   font-weight: 600;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background: transparent;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-light);
   cursor: pointer;
   letter-spacing: 0.04em;
   /* Override the global transition from App.css */
@@ -141,7 +144,7 @@
 }
 
 .tab:hover {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--primary-color);
   border-color: rgba(var(--primary-rgb), 0.4);
   background: rgba(var(--primary-rgb), 0.08);
   transform: translateY(-2px);
@@ -178,15 +181,15 @@
   position: relative;
   width: 340px;
   height: 340px;
-  background: rgba(102, 126, 234, 0.03);
-  border: 1px solid rgba(102, 126, 234, 0.12);
+  background: rgba(var(--primary-rgb), 0.03);
+  border: 1px solid rgba(var(--primary-rgb), 0.12);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow:
-    0 0 60px rgba(102, 126, 234, 0.1),
-    inset 0 0 40px rgba(102, 126, 234, 0.05);
+    0 0 60px rgba(var(--primary-rgb), 0.1),
+    inset 0 0 40px rgba(var(--primary-rgb), 0.05);
 }
 
 .radarSvg {
@@ -200,7 +203,8 @@
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--text-light);
+  opacity: 0.6;
 }
 
 .chartLabel span {
@@ -221,7 +225,8 @@
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.25);
+  color: var(--text-light);
+  opacity: 0.6;
   margin: 0 0 1.25rem;
 }
 
@@ -249,7 +254,7 @@
   gap: 0.5rem;
   font-size: 0.9rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-dark);
 }
 
 .skillBarIcon {
@@ -267,7 +272,7 @@
 
 .skillBarTrack {
   height: 6px;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(0, 0, 0, 0.07);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -284,8 +289,8 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   padding: 2.5rem;
-  background: rgba(102, 126, 234, 0.04);
-  border: 1px solid rgba(102, 126, 234, 0.1);
+  background: rgba(var(--primary-rgb), 0.04);
+  border: 1px solid rgba(var(--primary-rgb), 0.1);
   border-radius: var(--border-radius-lg);
 }
 
@@ -312,7 +317,8 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--text-light);
+  opacity: 0.6;
 }
 
 @keyframes fadeInUp {

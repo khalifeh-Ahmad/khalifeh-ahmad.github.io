@@ -20,36 +20,76 @@ const skillCategories: SkillCategory[] = [
     label: "Frontend",
     key: "frontend",
     skills: [
-      { name: "React", value: 95, color: "#61dafb", icon: "⚛" },
-      { name: "TypeScript", value: 90, color: "#667eea", icon: "TS" },
-      { name: "CSS", value: 88, color: "#764ba2", icon: "🎨" },
-      { name: "Next.js", value: 82, color: "#a78bfa", icon: "N" },
-      { name: "Three.js", value: 70, color: "#c4b5fd", icon: "3D" },
-      { name: "Testing", value: 85, color: "#8b5cf6", icon: "✓" },
+      { name: "React", value: 95, color: "var(--primary-color)", icon: "⚛" },
+      {
+        name: "TypeScript",
+        value: 90,
+        color: "var(--primary-color)",
+        icon: "TS",
+      },
+      { name: "CSS", value: 88, color: "var(--secondary-color)", icon: "🎨" },
+      {
+        name: "JavaScript",
+        value: 82,
+        color: "var(--secondary-color)",
+        icon: "N",
+      },
+      {
+        name: "Three.js",
+        value: 70,
+        color: "var(--primary-color)",
+        icon: "3D",
+      },
+      {
+        name: "Testing",
+        value: 85,
+        color: "var(--secondary-color)",
+        icon: "✓",
+      },
     ],
   },
   {
     label: "Backend",
     key: "backend",
     skills: [
-      { name: "Node.js", value: 85, color: "#667eea", icon: "🟢" },
-      { name: "Python", value: 78, color: "#764ba2", icon: "🐍" },
-      { name: "REST APIs", value: 92, color: "#a78bfa", icon: "↗" },
-      { name: "GraphQL", value: 72, color: "#c4b5fd", icon: "◈" },
-      { name: "PostgreSQL", value: 80, color: "#8b5cf6", icon: "🐘" },
-      { name: "MongoDB", value: 75, color: "#667eea", icon: "🍃" },
+      // { name: "Node.js", value: 85, color: "var(--primary-color)", icon: "🟢" },
+      {
+        name: "Laravel",
+        value: 65,
+        color: "var(--secondary-color)",
+        icon: "🐍",
+      },
+      {
+        name: "REST APIs",
+        value: 92,
+        color: "var(--primary-color)",
+        icon: "↗",
+      },
+      { name: "SQL", value: 72, color: "var(--secondary-color)", icon: "◈" },
+      // { name: "PostgreSQL", value: 80, color: "var(--primary-color)", icon: "🐘" },
+      // { name: "MongoDB", value: 75, color: "var(--secondary-color)", icon: "🍃" },
     ],
   },
   {
     label: "Tools",
     key: "tools",
     skills: [
-      { name: "Git", value: 95, color: "#667eea", icon: "⑂" },
-      { name: "Docker", value: 78, color: "#764ba2", icon: "🐋" },
-      { name: "N8N", value: 90, color: "#a78bfa", icon: "⚡" },
-      { name: "CI/CD", value: 75, color: "#c4b5fd", icon: "∞" },
-      { name: "Figma", value: 70, color: "#8b5cf6", icon: "✏" },
-      { name: "AWS", value: 65, color: "#667eea", icon: "☁" },
+      { name: "Git", value: 95, color: "var(--primary-color)", icon: "⑂" },
+      {
+        name: "Docker",
+        value: 60,
+        color: "var(--secondary-color)",
+        icon: "🐋",
+      },
+      { name: "N8N", value: 90, color: "var(--primary-color)", icon: "⚡" },
+      { name: "CI/CD", value: 75, color: "var(--secondary-color)", icon: "∞" },
+      { name: "jMeter", value: 70, color: "var(--primary-color)", icon: "✏" },
+      {
+        name: "Playwright",
+        value: 72,
+        color: "var(--secondary-color)",
+        icon: "☁",
+      },
     ],
   },
 ];
@@ -162,8 +202,16 @@ const RadarChart: React.FC<RadarChartProps> = ({ skills, animated }) => {
     >
       <defs>
         <radialGradient id={gradId} cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#667eea" stopOpacity="0.5" />
-          <stop offset="100%" stopColor="#764ba2" stopOpacity="0.15" />
+          <stop
+            offset="0%"
+            stopColor="var(--primary-color)"
+            stopOpacity="0.5"
+          />
+          <stop
+            offset="100%"
+            stopColor="var(--secondary-color)"
+            stopOpacity="0.15"
+          />
         </radialGradient>
         <filter id="radarGlow">
           <feGaussianBlur stdDeviation="3" result="coloredBlur" />
@@ -180,7 +228,8 @@ const RadarChart: React.FC<RadarChartProps> = ({ skills, animated }) => {
           key={i}
           points={pts}
           fill="none"
-          stroke="rgba(102, 126, 234, 0.15)"
+          stroke="var(--primary-color)"
+          strokeOpacity="0.15"
           strokeWidth="1"
         />
       ))}
@@ -194,7 +243,8 @@ const RadarChart: React.FC<RadarChartProps> = ({ skills, animated }) => {
             x={CX + 4}
             y={pt.y - 4}
             fontSize="9"
-            fill="rgba(255,255,255,0.25)"
+            fill="var(--text-light)"
+            fillOpacity="0.6"
             textAnchor="start"
           >
             {pct}%
@@ -210,7 +260,8 @@ const RadarChart: React.FC<RadarChartProps> = ({ skills, animated }) => {
           y1={CY}
           x2={pt.x}
           y2={pt.y}
-          stroke="rgba(102, 126, 234, 0.15)"
+          stroke="var(--primary-color)"
+          strokeOpacity="0.15"
           strokeWidth="1"
         />
       ))}
@@ -227,7 +278,7 @@ const RadarChart: React.FC<RadarChartProps> = ({ skills, animated }) => {
       <polygon
         points={dataPoints}
         fill="none"
-        stroke="#667eea"
+        stroke="var(--primary-color)"
         strokeWidth="2.5"
         filter="url(#radarGlow)"
         strokeLinejoin="round"
@@ -244,7 +295,7 @@ const RadarChart: React.FC<RadarChartProps> = ({ skills, animated }) => {
             cy={pt.y}
             r="5"
             fill={skills[i].color}
-            stroke="#0a0a0f"
+            stroke="var(--bg-white)"
             strokeWidth="2"
             filter="url(#radarGlow)"
           />
@@ -263,7 +314,8 @@ const RadarChart: React.FC<RadarChartProps> = ({ skills, animated }) => {
               y={pt.y - 2}
               fontSize="11"
               fontWeight="700"
-              fill="rgba(255,255,255,0.9)"
+              fill="var(--text-dark)"
+              fillOpacity="0.9"
               textAnchor={textAnchor}
               dominantBaseline="auto"
             >
@@ -325,14 +377,23 @@ const SkillBar: React.FC<SkillBarProps> = ({ skill, animated, delay }) => {
           className={styles.skillBarFill}
           style={{
             width: `${width}%`,
-            background: `linear-gradient(90deg, #667eea, #764ba2)`,
-            boxShadow: `0 0 12px rgba(102, 126, 234, 0.5)`,
+            background: `linear-gradient(90deg, var(--primary-color), var(--secondary-color))`,
+            boxShadow: `0 0 12px rgba(var(--primary-rgb), 0.5)`,
             transition: `width 1s cubic-bezier(0.4, 0, 0.2, 1) ${delay}ms`,
           }}
         />
       </div>
     </div>
   );
+};
+const calculateSkillStats = () => {
+  const allSkills = skillCategories.flatMap((cat) => cat.skills);
+  const total = allSkills.length;
+  const avg = allSkills.reduce((sum, skill) => sum + skill.value, 0) / total;
+  return {
+    total: `${total}+`,
+    avg: `${Math.round(avg)}%`,
+  };
 };
 
 // ── Main Component ──────────────────────────────────────────────────
@@ -341,7 +402,7 @@ const SkillRadar: React.FC = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation(0.05);
 
   const current = skillCategories[activeCategory];
-
+const { total, avg } = calculateSkillStats();
   return (
     <section id="skills" className={styles.section} ref={sectionRef}>
       <div className={styles.bgGrid}></div>
@@ -408,8 +469,8 @@ const SkillRadar: React.FC = () => {
         {/* Stats */}
         <div className={styles.stats}>
           {[
-            { label: "Technologies", value: "20+" },
-            { label: "Avg Proficiency", value: "82%" },
+            { label: "Technologies", value: total },
+            { label: "Avg Proficiency", value: avg },
             { label: "Years Learning", value: "5+" },
             { label: "Projects Built", value: "50+" },
           ].map((stat, i) => (
