@@ -5,33 +5,38 @@ export const useScrollAnimation = (threshold = 0.1) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const currentRef = ref.current;
+    if (!currentRef) return;
+
+    // ✅ Check if already in viewport on mount FIRST
+    const rect = currentRef.getBoundingClientRect();
+    const isAlreadyVisible =
+      rect.top < window.innerHeight &&
+      rect.bottom > 0 &&
+      rect.left < window.innerWidth &&
+      rect.right > 0;
+
+    //  If already visible, set immediately and DON'T observe
+    if (isAlreadyVisible) {
+      setIsVisible(true);
+      return; // Early return - no need to set up observer at all
+    }
+
+    //  Only observe if NOT already visible
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          observer.unobserve(currentRef); // Stop watching once triggered
         }
       },
       { threshold }
     );
 
-    const currentRef = ref.current;
-
-    if (currentRef) {
-      // Check if element is already visible on mount
-      const rect = currentRef.getBoundingClientRect();
-      const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-
-      if (isInViewport) {
-        setIsVisible(true);
-      }
-
-      observer.observe(currentRef);
-    }
+    observer.observe(currentRef);
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
+      observer.unobserve(currentRef);
     };
   }, [threshold]);
 
