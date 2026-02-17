@@ -13,7 +13,6 @@ import LoadingScreen from "./components/Features/LoadingScreen/LoadingScreen";
 //import Projects from "./components/Sections/Projects/Projects";
 //import Testimonials from "./components/Sections/Testimonials/Testimonials";
 import './styles/animations.css';
-import Timeline from "./components/Features/Timeline/Timeline";
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
       <Header />
       <Hero />
       <About />
-      <Timeline /> 
       <Experience />
       <Education />
       <Skills />
