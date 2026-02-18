@@ -2,6 +2,15 @@ import React, { useState } from "react";
 import styles from "./Contact.module.css";
 import { profileData } from "../../../data/portfolio";
 import ResumeDownload from "../../Features/ResumeDownload/ResumeDownload";
+import emailjs from "@emailjs/browser";
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  message?: string;
+}
+
+type FormStatus = "idle" | "loading" | "success" | "error";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,23 +19,136 @@ const Contact: React.FC = () => {
     message: "",
   });
 
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [submitMessage, setSubmitMessage] = useState("");
+
+  // Real-time validation functions
+  const validateName = (name: string): string | undefined => {
+    if (!name.trim()) return "Name is required";
+    if (name.trim().length < 2) return "Name must be at least 2 characters";
+    if (name.trim().length > 50) return "Name must be less than 50 characters";
+    return undefined;
+  };
+
+  const validateEmail = (email: string): string | undefined => {
+    if (!email.trim()) return "Email is required";
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) return "Please enter a valid email";
+    return undefined;
+  };
+
+  const validateMessage = (message: string): string | undefined => {
+    if (!message.trim()) return "Message is required";
+    if (message.trim().length < 10)
+      return "Message must be at least 10 characters";
+    if (message.trim().length > 1000)
+      return "Message must be less than 1000 characters";
+    return undefined;
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    // Real-time validation
+    if (touched[name]) {
+      let error: string | undefined;
+      if (name === "name") error = validateName(value);
+      if (name === "email") error = validateEmail(value);
+      if (name === "message") error = validateMessage(value);
+
+      setErrors({ ...errors, [name]: error });
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleBlur = (field: string) => {
+    setTouched({ ...touched, [field]: true });
+
+    // Validate on blur
+    let error: string | undefined;
+    if (field === "name") error = validateName(formData.name);
+    if (field === "email") error = validateEmail(formData.email);
+    if (field === "message") error = validateMessage(formData.message);
+
+    setErrors({ ...errors, [field]: error });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Create mailto link
-    const subject = `Portfolio Contact from ${formData.name}`;
-    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-    window.location.href = `mailto:${
-      profileData.email
-    }?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Mark all fields as touched
+    setTouched({ name: true, email: true, message: true });
+
+    // Validate all fields
+    const nameError = validateName(formData.name);
+    const emailError = validateEmail(formData.email);
+    const messageError = validateMessage(formData.message);
+
+    const newErrors: FormErrors = {
+      name: nameError,
+      email: emailError,
+      message: messageError,
+    };
+
+    setErrors(newErrors);
+
+    // Check if there are any errors
+    if (nameError || emailError || messageError) {
+      setStatus("error");
+      setSubmitMessage("Please fix the errors before submitting");
+      setTimeout(() => setStatus("idle"), 3000);
+      return;
+    }
+
+    // Submit form
+    setStatus("loading");
+
+    try {
+  
+      await emailjs.send(
+        "service_83gau4g", 
+        "template_oltus6u", 
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: profileData.name,
+        },
+        "j6S32c6rvpjCOYm2p"
+      );
+
+      setStatus("success");
+      setSubmitMessage("Message sent successfully! I'll get back to you soon.");
+      setFormData({ name: "", email: "", message: "" });
+      setTouched({});
+      setErrors({});
+
+      // Reset after 5 seconds
+      setTimeout(() => {
+        setStatus("idle");
+        setSubmitMessage("");
+      }, 5000);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setStatus("error");
+      setSubmitMessage(
+        "Failed to send message. Please try again or email me directly."
+      );
+      setTimeout(() => setStatus("idle"), 5000);
+    }
+  };
+
+  const getFieldClassName = (field: keyof FormErrors) => {
+    const baseClass = styles.formGroup;
+    if (!touched[field]) return baseClass;
+    if (errors[field]) return `${baseClass} ${styles.error}`;
+    if (formData[field] && !errors[field])
+      return `${baseClass} ${styles.success}`;
+    return baseClass;
   };
 
   return (
@@ -39,7 +161,7 @@ const Contact: React.FC = () => {
         </p>
 
         <div className={styles.content}>
-          {/* Contact Information */}
+          {/* Contact Information - unchanged */}
           <div className={styles.contactInfo}>
             <h3 className={styles.infoTitle}>Contact Information</h3>
 
@@ -131,6 +253,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <h4>LinkedIn</h4>
+
                 <a
                   href={profileData.linkedin}
                   target="_blank"
@@ -162,6 +285,7 @@ const Contact: React.FC = () => {
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
               </a>
+
               <a
                 href={profileData.linkedin}
                 target="_blank"
@@ -185,6 +309,7 @@ const Contact: React.FC = () => {
                   <circle cx="4" cy="4" r="2"></circle>
                 </svg>
               </a>
+
               <a
                 href={`${profileData.github}`}
                 target="_blank"
@@ -206,6 +331,7 @@ const Contact: React.FC = () => {
                   <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                 </svg>
               </a>
+
               <a
                 href={`tel:${profileData.phone}`}
                 aria-label="Phone"
@@ -234,64 +360,162 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
-          <form className={styles.form} onSubmit={handleSubmit}>
-            <div className={styles.formGroup}>
-              <label htmlFor="name">Your Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                placeholder="John Doe"
-              />
+          {/* Enhanced Contact Form */}
+          <form className={styles.form} onSubmit={handleSubmit} noValidate>
+            {/* Name Field */}
+            <div className={getFieldClassName("name")}>
+              <label htmlFor="name">
+                Your Name
+                <span className={styles.required}>*</span>
+              </label>
+              <div className={styles.inputWrapper}>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  onBlur={() => handleBlur("name")}
+                  placeholder="John Doe"
+                  className={
+                    errors.name && touched.name ? styles.inputError : ""
+                  }
+                  disabled={status === "loading"}
+                />
+                {touched.name && !errors.name && formData.name && (
+                  <span className={styles.successIcon}>✓</span>
+                )}
+                {touched.name && errors.name && (
+                  <span className={styles.errorIcon}>✕</span>
+                )}
+              </div>
+              {touched.name && errors.name && (
+                <span className={styles.errorMessage}>{errors.name}</span>
+              )}
             </div>
 
-            <div className={styles.formGroup}>
-              <label htmlFor="email">Your Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                placeholder="john@example.com"
-              />
+            {/* Email Field */}
+            <div className={getFieldClassName("email")}>
+              <label htmlFor="email">
+                Your Email
+                <span className={styles.required}>*</span>
+              </label>
+              <div className={styles.inputWrapper}>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  onBlur={() => handleBlur("email")}
+                  placeholder="john@example.com"
+                  className={
+                    errors.email && touched.email ? styles.inputError : ""
+                  }
+                  disabled={status === "loading"}
+                />
+                {touched.email && !errors.email && formData.email && (
+                  <span className={styles.successIcon}>✓</span>
+                )}
+                {touched.email && errors.email && (
+                  <span className={styles.errorIcon}>✕</span>
+                )}
+              </div>
+              {touched.email && errors.email && (
+                <span className={styles.errorMessage}>{errors.email}</span>
+              )}
             </div>
 
-            <div className={styles.formGroup}>
-              <label htmlFor="message">Your Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={15}
-                placeholder="Tell me about your project..."
-              />
+            {/* Message Field */}
+            <div className={getFieldClassName("message")}>
+              <label htmlFor="message">
+                Your Message
+                <span className={styles.required}>*</span>
+              </label>
+              <div className={styles.inputWrapper}>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  onBlur={() => handleBlur("message")}
+                  rows={6}
+                  placeholder="Tell me about your project..."
+                  className={
+                    errors.message && touched.message ? styles.inputError : ""
+                  }
+                  disabled={status === "loading"}
+                />
+                <span className={styles.charCount}>
+                  {formData.message.length} / 1000
+                </span>
+              </div>
+              {touched.message && errors.message && (
+                <span className={styles.errorMessage}>{errors.message}</span>
+              )}
             </div>
 
-            <button type="submit" className={styles.submitBtn}>
-              Send Message
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-              </svg>
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className={`${styles.submitBtn} ${
+                status === "loading" ? styles.loading : ""
+              } ${status === "success" ? styles.successBtn : ""} ${
+                status === "error" ? styles.errorBtn : ""
+              }`}
+              disabled={status === "loading"}
+            >
+              {status === "loading" && (
+                <>
+                  <div className={styles.spinner}></div>
+                  Sending...
+                </>
+              )}
+              {status === "success" && (
+                <>
+                  <span className={styles.successIconBtn}>✓</span>
+                  Message Sent!
+                </>
+              )}
+              {status === "error" && (
+                <>
+                  <span className={styles.errorIconBtn}>✕</span>
+                  Try Again
+                </>
+              )}
+              {status === "idle" && (
+                <>
+                  Send Message
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </>
+              )}
             </button>
+
+            {/* Status Message */}
+            {submitMessage && (
+              <div
+                className={`${styles.statusMessage} ${
+                  status === "success"
+                    ? styles.statusSuccess
+                    : styles.statusError
+                }`}
+              >
+                {submitMessage}
+              </div>
+            )}
           </form>
         </div>
       </div>

@@ -259,3 +259,161 @@
     font-size: 1.5rem;
   }
 }
+
+/* ─── Form Validation States ─────────────────────────── */
+.inputWrapper {
+  position: relative;
+}
+
+.required {
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+.successIcon,
+.errorIcon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.successIcon {
+  color: #10b981;
+  animation: scaleIn 0.3s ease;
+}
+
+.errorIcon {
+  color: #ef4444;
+  animation: shake 0.4s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: translateY(-50%) scale(0);
+  }
+  to {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateY(-50%) translateX(0);
+  }
+  25% {
+    transform: translateY(-50%) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-50%) translateX(5px);
+  }
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+  background: #fef2f2 !important;
+  animation: shake 0.4s ease;
+}
+
+.formGroup.success input,
+.formGroup.success textarea {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.formGroup.error input,
+.formGroup.error textarea {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.errorMessage {
+  display: block;
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.charCount {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 1rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+/* ─── Submit Button States ────────────────────────────── */
+.submitBtn.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.submitBtn.successBtn {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.submitBtn.errorBtn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.successIconBtn,
+.errorIconBtn {
+  font-size: 1.2rem;
+  font-weight: bold;
+  animation: scaleIn 0.3s ease;
+}
+
+/* ─── Status Message ──────────────────────────────────── */
+.statusMessage {
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--border-radius);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  animation: slideDown 0.4s ease;
+}
+
+.statusSuccess {
+  background: #f0fdf4;
+  color: #10b981;
+  border: 1px solid #10b981;
+}
+
+.statusError {
+  background: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+}
