@@ -124,7 +124,7 @@ const Hero: React.FC = () => {
 
         <div className={styles.imageContainer}>
           <ProfileImage
-            professionalSrc="/profile.png"
+            professionalSrc="/prof.jpeg"
             casualSrc="/sec-profile.jpg"
             alt={profileData.name}
           />
